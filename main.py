@@ -10,9 +10,13 @@ usuarios = [
 ]
 
 # Rota para obter a lista de usuários
+@app.route('/', methods=['GET'])
+def home():
+    return '<p>Olá</p>'
 @app.route('/usuarios', methods=['GET'])
 def obter_usuarios():
     return jsonify({"usuarios": usuarios})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
