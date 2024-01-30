@@ -15,7 +15,7 @@ def home():
     return '<p>Olá</p>'
 @app.route('/usuarios', methods=['GET'])
 def obter_usuarios():
-    return jsonify({"usuarios": usuarios})
+    return jsonify(usuarios)
 
 
 if __name__ == '__main__':
