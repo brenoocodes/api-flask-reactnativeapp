@@ -30,6 +30,6 @@ class Postagem(db.Model):
     autor_nome = db.Column(db.String(255), db.ForeignKey('autor.nome'))
 
 # # Criando o banco de dados
-#with app.app_context():
-    # db.drop_all()
-#   db.create_all()
+# with app.app_context():
+#     db.drop_all()
+#     db.create_all()
