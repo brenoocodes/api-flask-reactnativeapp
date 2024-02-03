@@ -3,6 +3,8 @@ from login import *
 from autor import *
 from postagem import *
 from bancoconfig import *
+from configemail import *
+
 
 
 @app.route('/', methods=['GET'])
