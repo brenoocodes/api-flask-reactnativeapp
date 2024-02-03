@@ -83,7 +83,7 @@ def gerar_e_enviar_token(email):
             token_link = f"{BASE_URL}/verificar_email/{token}"
 
             # Enviar e-mail com o token
-            enviar_email_dinamico(email, 'Token de Verificação', token_link, 'enviartoken.html')
+            enviar_email_dinamico(email, 'Token de Verificação', token_link)
 
             # Adicionar o novo token ao banco de dados
             db.session.add(token_registro_existente)
