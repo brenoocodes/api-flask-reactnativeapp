@@ -35,8 +35,26 @@ def enviar_email_dinamico(destinatario, assunto, link_botao, arquivo_template, b
     # Lendo o conteúdo HTML do arquivo
     conteudo_html = ler_html(arquivo_template)
 
-    # Renderizando o template HTML
+    # Adicione o link do botão ao conteúdo HTML
     conteudo_html = conteudo_html.replace('{{ link_botao }}', link_completo)
+
+    # Adicione o corpo do e-mail aqui
+    corpo_email = """
+        <html>
+            <head></head>
+            <body>
+                <p>Olá,</p>
+                <p>Este é o corpo do seu e-mail.</p>
+                <a href="{{ link_botao }}" style="background-color: #4CAF50; color: white; padding: 10px; text-decoration: none; display: inline-block;">Clique aqui</a>
+                <!-- Adicione mais conteúdo conforme necessário -->
+                <p>Atenciosamente,</p>
+                <p>Seu Nome</p>
+            </body>
+        </html>
+    """
+
+    # Substitua o conteúdo HTML com o corpo do e-mail
+    conteudo_html = conteudo_html.replace('{{ corpo_email }}', corpo_email)
 
     mensagem = Message(assunto, sender=remetente, recipients=[destinatario])
     mensagem.html = conteudo_html
@@ -49,7 +67,6 @@ def enviar_email_dinamico(destinatario, assunto, link_botao, arquivo_template, b
         print('Erro ao enviar o email:')
         print(str(e))
         return False
-
 
 # Exemplo de uso da função
 # destinatario = 'brenos200304@gmail.com'
