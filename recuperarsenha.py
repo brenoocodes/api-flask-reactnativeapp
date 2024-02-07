@@ -66,6 +66,11 @@ def mudar_senha(token):
             
             autor.email_verificado = True
             db.session.commit()
+
+            verificacao = TokenVerificacaoEmail.query.filter_by(token=token).first()
+            if verificacao:
+                db.session.delete(verificacao)
+                db.session.commit()
             
             # Redirecionando para a página de confirmação de mudança de senha
             return redirect(url_for('senha_modificada'))
