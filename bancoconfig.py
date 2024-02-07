@@ -6,6 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'FsjdejefweFRFWG#3452%@%@TRWWewrgwg4rtwghyettwwt254536g'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:breno19042003@brenocodesbanco.clysq3fxahpq.us-east-1.rds.amazonaws.com/brenocodesbanco'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:breno19042003@localhost/blog'
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -49,7 +50,7 @@ class TokenVerificacaoEmail(db.Model):
 
 
 
-# Creating the database
+# Criar o database
 # with app.app_context():
 #     db.drop_all()
 #     db.create_all()

@@ -2,6 +2,7 @@ from flask import jsonify, request
 from bancoconfig import Autor, db, bcrypt, app
 from login import *
 from configemail import *
+from verificadoremail import *
 
 @app.route('/autores')
 @token_obrigatorio
@@ -40,8 +41,8 @@ def novo_autor():
         if autor_existente:
             return jsonify({'mensagem': 'E-mail já cadastrado'}), 400
         senha_criptografada = bcrypt.generate_password_hash(novo_autor['senha']).decode('utf-8')
-        autor = Autor(nome=novo_autor['nome'], email=email, senha=senha_criptografada, admin=True)
-        gerar_e_enviar_token(email)
+        autor = Autor(nome=novo_autor['nome'], email=email, senha=senha_criptografada, admin=True, email_verificado=False)
+        verificar(email)
         db.session.add(autor)
         db.session.commit()
         return jsonify({'mensagem': 'Novo autor cadastrado com sucesso. Verifique seu e-mail para ativar a conta'})
