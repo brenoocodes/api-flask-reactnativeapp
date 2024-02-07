@@ -47,11 +47,10 @@ def login():
                               app.config['SECRET_KEY'])
             response_data = {
                 'token': token,
-                'usuario': {
-                    'id_autor': usuario.id_autor,
-                    'nome': usuario.nome,
-                    'email': usuario.email
-                }
+                'id_autor': usuario.id_autor,
+                'nome': usuario.nome,
+                'email': usuario.email
+                
             }
             return jsonify(response_data)
         else:
