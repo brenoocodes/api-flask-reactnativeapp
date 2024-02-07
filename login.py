@@ -43,7 +43,7 @@ def login():
     if bcrypt.check_password_hash(usuario.senha, auth.password):
         if usuario.email_verificado:
             print("Senha válida! Usuário verificado.")
-            token = jwt.encode({'id_autor': usuario.id_autor, 'exp': (datetime.utcnow() + timedelta(minutes=10)).timestamp()},
+            token = jwt.encode({'id_autor': usuario.id_autor, 'exp': (datetime.utcnow() + timedelta(days=15)).timestamp()},
                               app.config['SECRET_KEY'])
             response_data = {
                 'token': token,
