@@ -3,8 +3,8 @@ from flask_mail import Message, Mail
 from itsdangerous import URLSafeSerializer
 from bancoconfig import db, Autor, TokenVerificacaoEmail, app
 
-configemailemail = 'bscbreno1904@gmail.com'
-configemailsenha = 'zaxqpypgchmbsfwf'
+configemailemail = 'seuemail'
+configemailsenha = 'suasenha'
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
@@ -46,7 +46,7 @@ def enviar_email(destinatario, assunto, link_botao, arquivo_template):
 
 
 # Exemplo de uso da função
-# destinatario = 'brenos200304@gmail.com'
+# destinatario = 'brenos@gmail.com'
 # assunto = 'Assunto do Email'
 # link_botao = 'autores'
 # template = 'email_template.html'
