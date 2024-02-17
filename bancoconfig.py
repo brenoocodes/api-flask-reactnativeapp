@@ -5,8 +5,8 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'FsjdejefweFRFWG#3452%@%@TRWWewrgwg4rtwghyettwwt254536g'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:breno19042003@brenocodesbanco.clysq3fxahpq.us-east-1.rds.amazonaws.com/brenocodesbanco'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:breno19042003@localhost/blog'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://suasenha'
+
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
